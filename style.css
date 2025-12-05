@@ -11,14 +11,15 @@ h1, h2, h3, .nav-item {
     font-family: 'Oswald', sans-serif;
 }
 
-/* Padrão Triforce Ajustado 
-   Adicionei um 4º caminho no SVG (M18 26 L14 19 L22 19 Z)
-   que desenha um pequeno triângulo invertido no centro do vazio,
-   recriando o detalhe que faltava.
+/* Padrão Ajustado (Correção)
+   - Removi o triângulo pequeno do centro (x=18).
+   - Adicionei duas metades nas bordas (x=0 e x=36).
+   Quando o background se repete, essas metades se unem formando
+   o triângulo pequeno no espaço ENTRE os demais.
 */
 .header-pattern {
     background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='32' viewBox='0 0 36 32'%3E%3Cpath fill='%23f4f4f4' d='M18 0 L9 16 L27 16 Z M9 16 L0 32 L18 32 Z M27 16 L18 32 L36 32 Z M18 26 L14 19 L22 19 Z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='32' viewBox='0 0 36 32'%3E%3Cpath fill='%23f4f4f4' d='M18 0 L9 16 L27 16 Z M9 16 L0 32 L18 32 Z M27 16 L18 32 L36 32 Z M0 26 L4 19 L0 19 Z M36 26 L32 19 L36 19 Z'/%3E%3C/svg%3E");
     background-size: 18px 16px;
     background-position: center top;
 }
