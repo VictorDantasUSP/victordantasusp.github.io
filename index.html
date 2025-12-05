@@ -1,11 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <title>Meu Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giro no Mundo | Tudo sobre viagens</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #d4af37; /* Tom dourado similar ao estilo de blogs de viagem */
+        }
+    </style>
 </head>
-<body>
-    <h1>Olá! Meu site está no ar 🎉</h1>
-    <p>Feito no GitHub Pages.</p>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header / Menu -->
+    <header class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <!-- Logo Area -->
+            <div class="text-2xl font-bold tracking-widest uppercase mb-4 md:mb-0">
+                <a href="#" class="flex items-center gap-2">
+                    <i class="fas fa-globe-americas text-gray-800"></i>
+                    <span>Giro no Mundo</span>
+                </a>
+            </div>
+
+            <!-- Social Icons (Top Right usually) -->
+            <div class="absolute top-4 right-4 md:static md:hidden">
+                <div class="flex gap-3 text-gray-600">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav>
+                <ul class="flex flex-wrap justify-center gap-6 text-sm font-semibold text-gray-600 tracking-wide">
+                    <li><a href="#" class="nav-link text-black">PÁGINA INICIAL</a></li>
+                    <li><a href="#" class="nav-link">DESTINOS</a></li>
+                    <li><a href="#" class="nav-link">ROTEIROS</a></li>
+                    <li><a href="#" class="nav-link">MORANDO FORA</a></li>
+                    <li><a href="#" class="nav-link">DICAS</a></li>
+                    <li><a href="#" class="nav-link">SOBRE</a></li>
+                    <li><a href="#" class="nav-link">CONTATO</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Desktop Social Icons -->
+            <div class="hidden md:flex gap-4 text-gray-600 ml-4">
+                <a href="#" class="hover:text-blue-600"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section: LONDRES -->
+    <section class="hero-section h-[500px] flex items-center justify-center text-white text-center relative">
+        <div class="bg-black/40 p-8 md:p-12 max-w-2xl mx-4">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 tracking-wider">LONDRES</h2>
+            <p class="text-lg md:text-xl font-light mb-6">Conheça mais sobre o turismo na capital inglesa</p>
+            <button class="border-2 border-white px-8 py-2 hover:bg-white hover:text-black transition duration-300 uppercase text-sm tracking-widest font-semibold">
+                Saiba Mais
+            </button>
+        </div>
+        <div class="absolute bottom-4 right-4 text-xs opacity-70">
+            Crédito: Pixabay
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-16 flex-grow">
+        
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <!-- Roteiro em Destaque -->
+            <article class="flex flex-col gap-4">
+                <div class="uppercase text-xs font-bold text-gray-400 tracking-widest mb-1">Roteiro em destaque</div>
+                <div class="h-64 overflow-hidden relative group">
+                    <!-- Imagem placeholder de Paris -->
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                         alt="Torre Eiffel Paris" 
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                </div>
+                <h3 class="text-2xl font-serif font-bold text-gray-800 mt-2">10 dias em Paris</h3>
+                <p class="text-gray-600 leading-relaxed text-sm">
+                    Veja sugestões do que fazer em Paris, na França. Conheça mais sobre as principais atrações turísticas da cidade e confira dicas para saber como aproveitar seu tempo lá.
+                </p>
+                <a href="#" class="text-red-400 font-bold text-sm uppercase tracking-wide mt-2 hover:underline">Leia mais</a>
+            </article>
+
+            <!-- Dica Sugerida -->
+            <article class="flex flex-col gap-4">
+                <div class="uppercase text-xs font-bold text-gray-400 tracking-widest mb-1">Dica sugerida</div>
+                <div class="h-64 overflow-hidden relative group">
+                    <!-- Imagem placeholder de Inverno/Campos do Jordão -->
+                    <img src="https://images.unsplash.com/photo-1483362140417-64095146c96b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                         alt="Inverno" 
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                </div>
+                <h3 class="text-2xl font-serif font-bold text-gray-800 mt-2">5 destinos para curtir o inverno no Brasil</h3>
+                <p class="text-gray-600 leading-relaxed text-sm">
+                    Aproveite as férias de julho e as baixas temperaturas do inverno para curtir algumas das cidades turísticas mais famosas dessa estação.
+                </p>
+                <a href="#" class="text-red-400 font-bold text-sm uppercase tracking-wide mt-2 hover:underline">Leia mais</a>
+            </article>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-600 py-12 border-t mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-8 text-sm">
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest mb-4">Direitos Autorais</h4>
+                    <p class="text-xs leading-relaxed">
+                        Conteúdo protegido por direitos autorais.<br>
+                        Proibida a reprodução total ou parcial sem autorização expressa dos autores.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest mb-4">Giro no Mundo</h4>
+                    <p class="text-xs">
+                        Copyright © 2019 - 2025 Giro no Mundo
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest mb-4">Contato</h4>
+                    <p class="text-xs">
+                        izabellapietro@hotmail.com<br>
+                        Ribeirão Preto, São Paulo
+                    </p>
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-6 text-xl mt-8">
+                <a href="#" class="text-gray-400 hover:text-gray-600"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gray-600"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
