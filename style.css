@@ -4,26 +4,28 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: #333;
-    background-color: #fcfcfc;
+    
+    /* Padrão de Triângulos (Aplicado agora em todo o site) 
+       - Cor de fundo ajustada para #ffffff para combinar com o padrão.
+       - A imagem e configurações foram movidas da classe .header-pattern para cá.
+    */
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='32' viewBox='0 0 36 32'%3E%3Cpath fill='%23f4f4f4' d='M18 0 L9 16 L27 16 Z M9 16 L0 32 L18 32 Z M27 16 L18 32 L36 32 Z M0 0 L9 16 L0 16 Z M36 0 L27 16 L36 16 Z'/%3E%3C/svg%3E");
+    background-size: 18px 16px;
+    background-position: center top;
 }
 
 h1, h2, h3, .nav-item {
     font-family: 'Oswald', sans-serif;
 }
 
-/* Padrão  Ajustado (Correção Final)
-   O SVG foi redesenhado para incluir o original E as partes necessárias
-   para formar o triângulo entre eles quando o padrão se repete.
-   - Original: 3 triângulos.
-   - Bordas: Adicionei duas formas (M0 0 L9 16 L0 16 Z e M36 0 L27 16 L36 16 Z) nas laterais.
-     Quando unidas pela repetição do background, elas formam o triângulo grande
-     no espaço vazio entre os topos dos triângulos, conforme sua referência.
+/* Header Pattern 
+   - Removi as propriedades de background daqui, pois agora o body cuida disso.
+   - Mantive a classe vazia ou apenas para fins de layout se necessário no futuro,
+     mas visualmente ela agora é transparente e mostra o fundo do body.
 */
 .header-pattern {
-    background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='32' viewBox='0 0 36 32'%3E%3Cpath fill='%23f4f4f4' d='M18 0 L9 16 L27 16 Z M9 16 L0 32 L18 32 Z M27 16 L18 32 L36 32 Z M0 0 L9 16 L0 16 Z M36 0 L27 16 L36 16 Z'/%3E%3C/svg%3E");
-    background-size: 18px 16px;
-    background-position: center top;
+    /* Background removido para evitar sobreposição/desalinhamento com o body */
 }
 
 /* Links do Menu */
