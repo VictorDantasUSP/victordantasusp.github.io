@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giro no Mundo | Tudo sobre viagens</title>
     
-    <!-- Favicon adicionado -->
-    <link rel="icon" type="image/png" href="./images/Favicon-IOS.png">
+    <!-- Favicon e Ícones - Ajustado para maior compatibilidade -->
+    <link rel="shortcut icon" href="./images/Favicon-IOS.png" type="image/png">
+    <link rel="icon" href="./images/Favicon-IOS.png" type="image/png">
+    <link rel="apple-touch-icon" href="./images/Favicon-IOS.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -74,15 +76,25 @@
 <body class="flex flex-col min-h-screen">
 
     <!-- Header com Padrão de Triângulos -->
-    <!-- py-4 (16px topo + 16px base) + Logo (189px) = ~221px de altura total para esta seção -->
     <header class="header-pattern py-4 relative flex items-center justify-center">
         <div class="container mx-auto px-4 relative flex flex-col items-center justify-center">
             
-            <!-- Ícones Sociais (Topo Direito Absoluto) -->
-            <div class="absolute top-0 right-4 flex gap-3">
-                <a href="#" class="text-blue-800 text-2xl"><i class="fab fa-facebook-square"></i></a>
-                <a href="#" class="text-red-600 text-2xl"><i class="fab fa-youtube-square"></i></a>
-                <a href="#" class="text-pink-600 text-2xl"><i class="fab fa-instagram-square"></i></a>
+            <!-- 
+                Ícones Sociais 
+                - Mobile: Topo direito (top-0 right-4)
+                - Desktop (md): Centralizado verticalmente com o logo (top-1/2 -translate-y-1/2) 
+                  para ficar "mais perto" visualmente do centro de gravidade do logo.
+            -->
+            <div class="absolute top-0 right-4 md:top-1/2 md:transform md:-translate-y-1/2 flex gap-3 z-10">
+                <a href="https://www.facebook.com/gironomundo" target="_blank" rel="noopener noreferrer" class="text-blue-800 text-2xl hover:scale-110 transition">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+                <a href="https://www.youtube.com/gironomundo" target="_blank" rel="noopener noreferrer" class="text-red-600 text-2xl hover:scale-110 transition">
+                    <i class="fab fa-youtube-square"></i>
+                </a>
+                <a href="https://www.instagram.com/gironomundo" target="_blank" rel="noopener noreferrer" class="text-pink-600 text-2xl hover:scale-110 transition">
+                    <i class="fab fa-instagram-square"></i>
+                </a>
             </div>
 
             <!-- Logo Area -->
@@ -90,9 +102,8 @@
                 <a href="#" class="inline-block">
                     <!-- 
                         Tamanho exato solicitado: 
-                        Altura desktop: 189px (h-[189px])
-                        Largura máxima desktop: 529px (max-w-[529px])
-                        Mantive responsivo para mobile (h-auto max-w-full)
+                        Altura desktop: 189px 
+                        Largura máxima desktop: 529px
                     -->
                     <img src="./images/Logo Completo.png" 
                          alt="Giro no Mundo" 
@@ -103,7 +114,6 @@
     </header>
 
     <!-- Barra de Menu Escura -->
-    <!-- Altura fixada em 61px (h-[61px]) com flex para centralizar o conteúdo -->
     <nav class="bg-[#333333] h-[61px] text-white shadow-md sticky top-0 z-50 border-t border-gray-600 flex items-center">
         <div class="container mx-auto px-4">
             <ul class="flex flex-wrap justify-center items-center text-sm md:text-base font-bold tracking-wider uppercase font-oswald h-full">
@@ -143,14 +153,9 @@
         
         <!-- Slide 1: Londres -->
         <div class="carousel-slide active h-full w-full relative">
-            <!-- 
-                 DICA PARA O GITHUB:
-                 Exemplo: src="./images/banner-londres.jpg"
-            -->
             <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
                  alt="Londres" class="w-full h-full object-cover">
             
-            <!-- Caixa Flutuante (Estilo da imagem) -->
             <div class="absolute top-1/2 right-4 md:right-20 transform -translate-y-1/2 w-64 md:w-96 floating-card p-8 md:p-12 text-center">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 uppercase text-black tracking-wide">Londres</h2>
                 <div class="w-16 h-1 bg-black mx-auto mb-6"></div>
@@ -161,7 +166,7 @@
             </div>
         </div>
 
-        <!-- Slide 2: Paris (Exemplo de segundo slide) -->
+        <!-- Slide 2: Paris -->
         <div class="carousel-slide h-full w-full relative">
             <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
                  alt="Paris" class="w-full h-full object-cover">
@@ -200,9 +205,6 @@
             <article class="flex flex-col">
                 <h3 class="text-3xl font-bold text-gray-800 mb-6 font-oswald">Roteiro em destaque</h3>
                 <div class="h-64 overflow-hidden mb-6 border border-gray-200">
-                    <!-- 
-                        DICA GITHUB: src="./images/torre-eiffel.jpg"
-                    -->
                     <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
                          alt="Paris" 
                          class="w-full h-full object-cover transition duration-500 hover:scale-105">
@@ -220,9 +222,6 @@
             <article class="flex flex-col">
                 <h3 class="text-3xl font-bold text-gray-800 mb-6 font-oswald">Dica sugerida</h3>
                 <div class="h-64 overflow-hidden mb-6 border border-gray-200">
-                    <!-- 
-                        DICA GITHUB: src="./images/inverno-brasil.jpg"
-                    -->
                     <img src="https://images.unsplash.com/photo-1483362140417-64095146c96b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
                          alt="Inverno" 
                          class="w-full h-full object-cover transition duration-500 hover:scale-105">
