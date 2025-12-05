@@ -23,11 +23,15 @@
             font-family: 'Oswald', sans-serif;
         }
         
-        /* Padrão pontilhado sutil no header similar ao da imagem */
+        /* Padrão de Triângulos/Losangos Sutil */
         .header-pattern {
-            background-color: #fdfdfd;
-            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
-            background-size: 10px 10px;
+            background-color: #ffffff;
+            /* Cria o efeito de triângulos usando gradientes opostos */
+            background-image: 
+                linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4),
+                linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4);
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
         }
 
         .nav-link {
@@ -69,33 +73,39 @@
 </head>
 <body class="flex flex-col min-h-screen">
 
-    <!-- Header com Padrão de Fundo -->
-    <header class="header-pattern py-6 relative">
+    <!-- Header com Padrão de Triângulos -->
+    <header class="header-pattern py-8 relative">
         <div class="container mx-auto px-4 relative flex flex-col items-center justify-center">
             
-            <!-- Ícones Sociais (Topo Direito Absoluto) -->
-            <div class="absolute top-0 right-4 flex gap-2">
-                <a href="#" class="text-blue-800 text-xl"><i class="fab fa-facebook-square"></i></a>
-                <a href="#" class="text-red-600 text-xl"><i class="fab fa-youtube-square"></i></a>
-                <a href="#" class="text-pink-600 text-xl"><i class="fab fa-instagram-square"></i></a>
+            <!-- Ícones Sociais (Topo Direito Absoluto - Ajustado para alinhar melhor) -->
+            <div class="absolute top-0 right-4 flex gap-3">
+                <a href="#" class="text-blue-800 text-2xl"><i class="fab fa-facebook-square"></i></a>
+                <a href="#" class="text-red-600 text-2xl"><i class="fab fa-youtube-square"></i></a>
+                <a href="#" class="text-pink-600 text-2xl"><i class="fab fa-instagram-square"></i></a>
             </div>
 
-            <!-- Logo Area (Centralizado) -->
-            <div class="mb-4 text-center">
+            <!-- Logo Area (Aumentada) -->
+            <div class="mb-2 text-center w-full">
                 <a href="#" class="inline-block">
-                    <!-- Imagem do Logo carregada da pasta images -->
+                    <!-- 
+                        Ajuste de tamanho: 
+                        No mobile (padrão): max-h-40 (160px)
+                        No desktop (md): max-h-60 (240px) 
+                        Isso deve aproximar do tamanho original do Wix
+                    -->
                     <img src="./images/Logo Completo.png" 
                          alt="Giro no Mundo" 
-                         class="h-auto max-h-24 md:max-h-32 mx-auto">
+                         class="h-auto max-h-40 md:max-h-60 mx-auto object-contain">
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Barra de Menu Escura -->
-    <nav class="bg-[#333333] text-white py-3 shadow-md sticky top-0 z-50 border-t border-gray-600">
+    <nav class="bg-[#333333] text-white py-4 shadow-md sticky top-0 z-50 border-t border-gray-600">
         <div class="container mx-auto px-4">
-            <ul class="flex flex-wrap justify-center items-center text-xs md:text-sm font-bold tracking-wider uppercase">
+            <!-- Fonte levemente maior (text-sm md:text-base) para combinar com o original -->
+            <ul class="flex flex-wrap justify-center items-center text-sm md:text-base font-bold tracking-wider uppercase font-oswald">
                 <li class="menu-item flex items-center">
                     <a href="#" class="nav-link active">Página Inicial</a>
                     <span class="menu-separator"></span>
@@ -128,7 +138,7 @@
     </nav>
 
     <!-- Hero Section / Carrossel -->
-    <section id="carousel" class="relative h-[400px] md:h-[550px] w-full overflow-hidden bg-gray-200">
+    <section id="carousel" class="relative h-[400px] md:h-[600px] w-full overflow-hidden bg-gray-200">
         
         <!-- Slide 1: Londres -->
         <div class="carousel-slide active h-full w-full relative">
@@ -140,13 +150,13 @@
                  alt="Londres" class="w-full h-full object-cover">
             
             <!-- Caixa Flutuante (Estilo da imagem) -->
-            <div class="absolute top-1/2 right-4 md:right-20 transform -translate-y-1/2 w-64 md:w-80 floating-card p-6 md:p-8 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 uppercase text-black">Londres</h2>
-                <div class="w-12 h-1 bg-black mx-auto mb-4"></div>
-                <p class="text-sm md:text-base font-semibold text-gray-800 leading-snug">
+            <div class="absolute top-1/2 right-4 md:right-20 transform -translate-y-1/2 w-64 md:w-96 floating-card p-8 md:p-12 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 uppercase text-black tracking-wide">Londres</h2>
+                <div class="w-16 h-1 bg-black mx-auto mb-6"></div>
+                <p class="text-sm md:text-lg font-semibold text-gray-800 leading-snug font-montserrat">
                     Conheça mais sobre o turismo na capital inglesa
                 </p>
-                <p class="text-xs text-gray-500 mt-4">Crédito: Pixabay</p>
+                <p class="text-xs text-gray-500 mt-6">Crédito: Pixabay</p>
             </div>
         </div>
 
@@ -155,40 +165,40 @@
             <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
                  alt="Paris" class="w-full h-full object-cover">
             
-            <div class="absolute top-1/2 right-4 md:right-20 transform -translate-y-1/2 w-64 md:w-80 floating-card p-6 md:p-8 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 uppercase text-black">Paris</h2>
-                <div class="w-12 h-1 bg-black mx-auto mb-4"></div>
-                <p class="text-sm md:text-base font-semibold text-gray-800 leading-snug">
+            <div class="absolute top-1/2 right-4 md:right-20 transform -translate-y-1/2 w-64 md:w-96 floating-card p-8 md:p-12 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 uppercase text-black tracking-wide">Paris</h2>
+                <div class="w-16 h-1 bg-black mx-auto mb-6"></div>
+                <p class="text-sm md:text-lg font-semibold text-gray-800 leading-snug font-montserrat">
                     Descubra o charme da Cidade Luz
                 </p>
-                <p class="text-xs text-gray-500 mt-4">Crédito: Unsplash</p>
+                <p class="text-xs text-gray-500 mt-6">Crédito: Unsplash</p>
             </div>
         </div>
 
         <!-- Controles do Carrossel (Setas) -->
-        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full">
-            <i class="fas fa-chevron-left"></i>
+        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition">
+            <i class="fas fa-chevron-left text-xl"></i>
         </button>
-        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full">
-            <i class="fas fa-chevron-right"></i>
+        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition">
+            <i class="fas fa-chevron-right text-xl"></i>
         </button>
         
         <!-- Indicadores (Bolinhas) -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3">
             <button onclick="setSlide(0)" class="w-3 h-3 rounded-full bg-white opacity-100 hover:opacity-100 transition shadow-sm"></button>
             <button onclick="setSlide(1)" class="w-3 h-3 rounded-full bg-white/50 hover:opacity-100 transition shadow-sm"></button>
         </div>
     </section>
 
     <!-- Conteúdo Principal -->
-    <main class="container mx-auto px-4 py-12 flex-grow bg-white relative top-0 z-10 shadow-lg -mt-4 mb-8 max-w-5xl">
+    <main class="container mx-auto px-4 py-16 flex-grow bg-white relative top-0 z-10 shadow-lg -mt-4 mb-8 max-w-6xl">
         
-        <div class="grid md:grid-cols-2 gap-12">
+        <div class="grid md:grid-cols-2 gap-16">
             
             <!-- Card 1 -->
             <article class="flex flex-col">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Roteiro em destaque</h3>
-                <div class="h-56 overflow-hidden mb-4 border border-gray-200">
+                <h3 class="text-3xl font-bold text-gray-800 mb-6 font-oswald">Roteiro em destaque</h3>
+                <div class="h-64 overflow-hidden mb-6 border border-gray-200">
                     <!-- 
                         DICA GITHUB: src="./images/torre-eiffel.jpg"
                     -->
@@ -196,19 +206,19 @@
                          alt="Paris" 
                          class="w-full h-full object-cover transition duration-500 hover:scale-105">
                 </div>
-                <h4 class="text-lg font-bold text-black mb-2 uppercase">10 dias em Paris</h4>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                <h4 class="text-xl font-bold text-black mb-3 uppercase font-oswald">10 dias em Paris</h4>
+                <p class="text-gray-600 text-base leading-relaxed mb-6 font-montserrat">
                     Veja sugestões do que fazer em Paris, na França. Conheça mais sobre as principais atrações turísticas da cidade.
                 </p>
                 <div class="mt-auto">
-                    <a href="#" class="inline-block bg-black text-white px-6 py-2 text-xs font-bold uppercase tracking-wider hover:bg-gray-800 transition">Leia mais</a>
+                    <a href="#" class="inline-block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-gray-800 transition">Leia mais</a>
                 </div>
             </article>
 
             <!-- Card 2 -->
             <article class="flex flex-col">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Dica sugerida</h3>
-                <div class="h-56 overflow-hidden mb-4 border border-gray-200">
+                <h3 class="text-3xl font-bold text-gray-800 mb-6 font-oswald">Dica sugerida</h3>
+                <div class="h-64 overflow-hidden mb-6 border border-gray-200">
                     <!-- 
                         DICA GITHUB: src="./images/inverno-brasil.jpg"
                     -->
@@ -216,12 +226,12 @@
                          alt="Inverno" 
                          class="w-full h-full object-cover transition duration-500 hover:scale-105">
                 </div>
-                <h4 class="text-lg font-bold text-black mb-2 uppercase">5 destinos para curtir o inverno no Brasil</h4>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                <h4 class="text-xl font-bold text-black mb-3 uppercase font-oswald">5 destinos para curtir o inverno no Brasil</h4>
+                <p class="text-gray-600 text-base leading-relaxed mb-6 font-montserrat">
                     Aproveite as férias de julho e as baixas temperaturas do inverno para curtir algumas das cidades turísticas mais famosas.
                 </p>
                 <div class="mt-auto">
-                    <a href="#" class="inline-block bg-black text-white px-6 py-2 text-xs font-bold uppercase tracking-wider hover:bg-gray-800 transition">Leia mais</a>
+                    <a href="#" class="inline-block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-gray-800 transition">Leia mais</a>
                 </div>
             </article>
 
@@ -229,13 +239,13 @@
     </main>
 
     <!-- Footer Escuro -->
-    <footer class="bg-[#444444] text-white py-12 border-t-4 border-gray-600 mt-auto">
+    <footer class="bg-[#444444] text-white py-16 border-t-4 border-gray-600 mt-auto">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                 <!-- Coluna Esquerda -->
                 <div class="text-left">
-                    <h4 class="font-bold text-lg uppercase tracking-widest mb-4 font-oswald">Direitos Autorais</h4>
-                    <p class="text-xs leading-relaxed text-gray-300">
+                    <h4 class="font-bold text-xl uppercase tracking-widest mb-6 font-oswald">Direitos Autorais</h4>
+                    <p class="text-sm leading-relaxed text-gray-300 font-montserrat">
                         Conteúdo protegido por direitos autorais.<br>
                         Proibida a reprodução total ou parcial sem autorização expressa dos autores.<br>
                         Copyright © 2019 Giro no Mundo
@@ -244,13 +254,13 @@
                 
                 <!-- Coluna Direita -->
                 <div class="text-left md:text-right">
-                    <h4 class="font-bold text-lg uppercase tracking-widest mb-4 font-oswald">Contato</h4>
-                    <div class="text-xs text-gray-300 flex flex-col md:items-end gap-2">
-                        <div class="flex items-center gap-2">
+                    <h4 class="font-bold text-xl uppercase tracking-widest mb-6 font-oswald">Contato</h4>
+                    <div class="text-sm text-gray-300 flex flex-col md:items-end gap-3 font-montserrat">
+                        <div class="flex items-center gap-3">
                             <i class="fas fa-envelope"></i>
                             <span>izabellapietro@hotmail.com</span>
                         </div>
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-3">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Ribeirão Preto, São Paulo</span>
                         </div>
@@ -264,7 +274,7 @@
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
-        const indicators = document.querySelectorAll('.absolute.bottom-4 button');
+        const indicators = document.querySelectorAll('.absolute.bottom-6 button');
 
         function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
