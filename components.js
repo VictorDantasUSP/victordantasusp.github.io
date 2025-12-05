@@ -69,7 +69,7 @@ const footerContent = `
         <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             <div class="text-left">
                 <h4 class="font-bold text-xl uppercase tracking-widest mb-6 font-oswald">Direitos Autorais</h4>
-                <p class="text-sm leading-relaxed text-gray-300 font-montserrat">Conteúdo protegido por direitos autorais.<br>Copyright © 2019 Giro no Mundo</p>
+                <p class="text-sm leading-relaxed text-gray-300 font-montserrat">Conteúdo protegido por direitos autorais.<br>Copyright © 2025 Giro no Mundo</p>
             </div>
             <div class="text-left md:text-right">
                 <h4 class="font-bold text-xl uppercase tracking-widest mb-6 font-oswald">Contato</h4>
