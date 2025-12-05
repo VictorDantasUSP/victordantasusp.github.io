@@ -14,9 +14,9 @@ const headerContent = `
             <a href="https://www.instagram.com/gironomundo" target="_blank" class="text-pink-600 text-2xl hover:scale-110 transition"><i class="fab fa-instagram-square"></i></a>
         </div>
         <div class="text-center w-full">
-            <a href="index.html" class="inline-block">
-                <!-- Ajustei para caminho relativo ./images para garantir compatibilidade -->
-                <img src="./images/Logo Completo.png" alt="Giro no Mundo" class="h-auto md:h-[189px] w-auto max-w-full md:max-w-[529px] mx-auto object-contain">
+            <a href="/" class="inline-block">
+                <!-- Usei o caminho absoluto /images para funcionar em qualquer pasta -->
+                <img src="/images/Logo Completo.png" alt="Giro no Mundo" class="h-auto md:h-[189px] w-auto max-w-full md:max-w-[529px] mx-auto object-contain">
             </a>
         </div>
     </div>
@@ -24,17 +24,18 @@ const headerContent = `
 `;
 
 // 2. MENU
-// Note que removi a classe 'active' fixa do HTML. O script abaixo adiciona ela automaticamente.
+// AJUSTE REALIZADO: Os links agora apontam para diretórios (/destinos/) e não arquivos (.html)
 const menuContent = `
 <nav class="bg-[#333333] min-h-[61px] h-auto text-white shadow-md sticky top-0 z-50 border-t border-gray-600 flex items-center py-2">
     <div class="container mx-auto px-4">
         <ul class="flex flex-wrap justify-center items-center text-sm md:text-base font-bold tracking-wider uppercase font-oswald w-full gap-y-2">
             <li class="menu-item flex items-center whitespace-nowrap">
-                <a href="index.html" class="nav-link">Página Inicial</a>
+                <a href="/" class="nav-link">Página Inicial</a>
                 <span class="menu-separator"></span>
             </li>
             <li class="menu-item flex items-center whitespace-nowrap">
-                <a href="/destinos/index.html" class="nav-link">Destinos</a>
+                <!-- MUDANÇA AQUI: Link aponta para a pasta, não para o arquivo -->
+                <a href="/destinos/" class="nav-link">Destinos</a>
                 <span class="menu-separator"></span>
             </li>
             <li class="menu-item flex items-center whitespace-nowrap">
@@ -103,13 +104,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Função auxiliar para marcar o link ativo baseado na URL atual
 function setActiveLink(menuElement) {
-    const currentPath = window.location.pathname.split("/").pop() || "index.html"; // Pega o nome do arquivo (ex: destinos.html)
+    // Normaliza o pathname removendo barra final e index.html para comparação
+    let currentPath = window.location.pathname;
+    
+    // Remove 'index.html' se estiver presente
+    currentPath = currentPath.replace(/\/index\.html$/, '/');
+    
+    // Garante que termina com / se não for a raiz vazia (opcional, dependendo de como o browser reporta)
+    if (currentPath.length > 1 && !currentPath.endsWith('/')) {
+        currentPath += '/';
+    }
+
     const links = menuElement.querySelectorAll(".nav-link");
 
     links.forEach(link => {
-        const href = link.getAttribute("href");
-        // Verifica se o href corresponde à página atual
-        if (href === currentPath || (currentPath === "" && href === "index.html")) {
+        let href = link.getAttribute("href");
+        
+        // Comparação exata
+        if (href === currentPath) {
             link.classList.add("active");
         }
     });
