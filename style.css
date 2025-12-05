@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Montserrat:wght@300;400;600&display=swap');
+
+/* Configurações Globais */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    background-color: #fcfcfc;
+}
+
+h1, h2, h3, .nav-item {
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Padrão Triforce Ajustado 
+   Adicionei um 4º caminho no SVG (M18 26 L14 19 L22 19 Z)
+   que desenha um pequeno triângulo invertido no centro do vazio,
+   recriando o detalhe que faltava.
+*/
+.header-pattern {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='32' viewBox='0 0 36 32'%3E%3Cpath fill='%23f4f4f4' d='M18 0 L9 16 L27 16 Z M9 16 L0 32 L18 32 Z M27 16 L18 32 L36 32 Z M18 26 L14 19 L22 19 Z'/%3E%3C/svg%3E");
+    background-size: 18px 16px;
+    background-position: center top;
+}
+
+/* Links do Menu */
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #d4af37;
+}
+
+.nav-link.active {
+    color: #d4af37;
+}
+
+/* Separador do Menu (|) */
+.menu-separator {
+    border-right: 1px solid #777;
+    height: 14px;
+    margin: 0 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.menu-item:last-child .menu-separator {
+    display: none;
+}
+
+/* Carrossel */
+.carousel-slide {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+/* Cartões Flutuantes (Texto sobre imagem) */
+.floating-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
