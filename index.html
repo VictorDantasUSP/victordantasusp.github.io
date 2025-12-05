@@ -6,9 +6,9 @@
     <title>Giro no Mundo | Tudo sobre viagens</title>
     
     <!-- Favicon e Ícones -->
-    <link rel="shortcut icon" href="./images/Perfil-Facebook.png" type="image/png">
-    <link rel="icon" href="./images/Perfil-Facebook.png" type="image/png">
-    <link rel="apple-touch-icon" href="./images/Perfil-Facebook.png">
+    <link rel="shortcut icon" href="./images/Favicon-IOS.png" type="image/png">
+    <link rel="icon" href="./images/Favicon-IOS.png" type="image/png">
+    <link rel="apple-touch-icon" href="./images/Favicon-IOS.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -25,14 +25,14 @@
             font-family: 'Oswald', sans-serif;
         }
         
-        /* Padrão de Quadrados (Grid) */
+        /* Padrão de Triângulos (Tesselagem) 
+           Substituí o grid de quadrados por um SVG embutido que desenha 
+           triângulos cinza claro sobre fundo branco, criando o efeito exato da imagem.
+        */
         .header-pattern {
             background-color: #ffffff;
-            /* Cria uma grade de linhas finas para formar quadrados */
-            background-image: 
-                linear-gradient(#e5e5e5 1px, transparent 1px),
-                linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
-            background-size: 20px 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='32' viewBox='0 0 36 32'%3E%3Cpath fill='%23f4f4f4' d='M18 32L0 0h36z'/%3E%3C/svg%3E");
+            background-size: 36px 32px;
             background-position: center top;
         }
 
