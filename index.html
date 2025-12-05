@@ -25,13 +25,6 @@
             font-family: 'Oswald', sans-serif;
         }
         
-        /* Padrão
-           Ajuste realizado:
-           - O SVG agora contém 3 triângulos (topo, esq-baixo, dir-baixo) para formar o padrão.
-           - O background-size foi ajustado para 18px 16px (dobro do tamanho unitário de 9px 8px).
-             Isso garante que cada triângulo individual continue tendo 9px de largura visualmente,
-             mas respeitando o espaçamento do padrão.
-        */
         .header-pattern {
             background-color: #ffffff;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='32' viewBox='0 0 36 32'%3E%3Cpath fill='%23f4f4f4' d='M18 0 L9 16 L27 16 Z M9 16 L0 32 L18 32 Z M27 16 L18 32 L36 32 Z'/%3E%3C/svg%3E");
@@ -49,7 +42,6 @@
             color: #d4af37;
         }
 
-        /* Separador do menu */
         .menu-separator {
             border-right: 1px solid #777;
             height: 14px;
@@ -61,7 +53,6 @@
             display: none;
         }
 
-        /* Estilo do Carrossel */
         .carousel-slide {
             display: none;
             transition: opacity 0.5s ease-in-out;
@@ -78,57 +69,34 @@
 </head>
 <body class="flex flex-col min-h-screen">
 
-    <!-- Header com Padrão de Quadrados -->
+    <!-- Header -->
     <header class="header-pattern py-6 relative">
-        <!-- 
-            Limitador de largura (max-w-6xl) adicionado para manter os elementos
-            (logo e ícones) agrupados e não espalhados nas bordas da tela.
-        -->
         <div class="max-w-6xl mx-auto px-4 w-full relative flex flex-col md:block">
-            
-            <!-- 
-                Ícones Sociais
-                - Mobile: Usei flex-col e order-first para ficarem acima do logo sem sobrepor (static position).
-                - Desktop: Absolute right-0 dentro do container max-w-6xl. Isso traz eles para "perto" do logo,
-                  respeitando a largura do conteúdo.
-            -->
             <div class="flex justify-center gap-4 mb-4 md:mb-0 md:absolute md:right-4 md:top-1/2 md:-translate-y-1/2 z-20">
-                <a href="https://www.facebook.com/gironomundo" target="_blank" rel="noopener noreferrer" class="text-blue-800 text-2xl hover:scale-110 transition">
-                    <i class="fab fa-facebook-square"></i>
-                </a>
-                <a href="https://www.youtube.com/gironomundo" target="_blank" rel="noopener noreferrer" class="text-red-600 text-2xl hover:scale-110 transition">
-                    <i class="fab fa-youtube-square"></i>
-                </a>
-                <a href="https://www.instagram.com/gironomundo" target="_blank" rel="noopener noreferrer" class="text-pink-600 text-2xl hover:scale-110 transition">
-                    <i class="fab fa-instagram-square"></i>
-                </a>
+                <a href="https://www.facebook.com/gironomundo" target="_blank" class="text-blue-800 text-2xl hover:scale-110 transition"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.youtube.com/gironomundo" target="_blank" class="text-red-600 text-2xl hover:scale-110 transition"><i class="fab fa-youtube-square"></i></a>
+                <a href="https://www.instagram.com/gironomundo" target="_blank" class="text-pink-600 text-2xl hover:scale-110 transition"><i class="fab fa-instagram-square"></i></a>
             </div>
-
-            <!-- Logo Area -->
             <div class="text-center w-full">
-                <a href="#" class="inline-block">
-                    <img src="./images/Logo Completo.png" 
-                         alt="Giro no Mundo" 
-                         class="h-auto md:h-[189px] w-auto max-w-full md:max-w-[529px] mx-auto object-contain">
+                <a href="index.html" class="inline-block">
+                    <img src="./images/Logo Completo.png" alt="Giro no Mundo" class="h-auto md:h-[189px] w-auto max-w-full md:max-w-[529px] mx-auto object-contain">
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Barra de Menu Escura -->
-    <!-- 
-        Alterado h-[61px] para min-h-[61px] e h-auto.
-        Isso permite que a barra cresça se os itens quebrarem linha no mobile.
-    -->
+    <!-- Menu -->
     <nav class="bg-[#333333] min-h-[61px] h-auto text-white shadow-md sticky top-0 z-50 border-t border-gray-600 flex items-center py-2">
         <div class="container mx-auto px-4">
             <ul class="flex flex-wrap justify-center items-center text-sm md:text-base font-bold tracking-wider uppercase font-oswald w-full gap-y-2">
                 <li class="menu-item flex items-center whitespace-nowrap">
-                    <a href="#" class="nav-link active">Página Inicial</a>
+                    <!-- LINK ATUALIZADO -->
+                    <a href="index.html" class="nav-link active">Página Inicial</a>
                     <span class="menu-separator"></span>
                 </li>
                 <li class="menu-item flex items-center whitespace-nowrap">
-                    <a href="#" class="nav-link">Destinos</a>
+                    <!-- LINK ATUALIZADO -->
+                    <a href="destinos.html" class="nav-link">Destinos</a>
                     <span class="menu-separator"></span>
                 </li>
                 <li class="menu-item flex items-center whitespace-nowrap">
@@ -154,167 +122,92 @@
         </div>
     </nav>
 
-    <!-- Hero Section / Carrossel -->
+    <!-- Hero / Carrossel -->
     <section id="carousel" class="relative h-[400px] md:h-[600px] w-full overflow-hidden bg-gray-200">
-        
-        <!-- Slide 1: Londres -->
         <div class="carousel-slide active h-full w-full relative">
-            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
-                 alt="Londres" class="w-full h-full object-cover">
-            
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Londres" class="w-full h-full object-cover">
             <div class="absolute top-1/2 right-4 md:right-20 transform -translate-y-1/2 w-64 md:w-96 floating-card p-8 md:p-12 text-center">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 uppercase text-black tracking-wide">Londres</h2>
                 <div class="w-16 h-1 bg-black mx-auto mb-6"></div>
-                <p class="text-sm md:text-lg font-semibold text-gray-800 leading-snug font-montserrat">
-                    Conheça mais sobre o turismo na capital inglesa
-                </p>
+                <p class="text-sm md:text-lg font-semibold text-gray-800 leading-snug font-montserrat">Conheça mais sobre o turismo na capital inglesa</p>
                 <p class="text-xs text-gray-500 mt-6">Crédito: Pixabay</p>
             </div>
         </div>
-
-        <!-- Slide 2: Paris -->
         <div class="carousel-slide h-full w-full relative">
-            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
-                 alt="Paris" class="w-full h-full object-cover">
-            
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Paris" class="w-full h-full object-cover">
             <div class="absolute top-1/2 right-4 md:right-20 transform -translate-y-1/2 w-64 md:w-96 floating-card p-8 md:p-12 text-center">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 uppercase text-black tracking-wide">Paris</h2>
                 <div class="w-16 h-1 bg-black mx-auto mb-6"></div>
-                <p class="text-sm md:text-lg font-semibold text-gray-800 leading-snug font-montserrat">
-                    Descubra o charme da Cidade Luz
-                </p>
+                <p class="text-sm md:text-lg font-semibold text-gray-800 leading-snug font-montserrat">Descubra o charme da Cidade Luz</p>
                 <p class="text-xs text-gray-500 mt-6">Crédito: Unsplash</p>
             </div>
         </div>
-
-        <!-- Controles do Carrossel (Setas) -->
-        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition">
-            <i class="fas fa-chevron-left text-xl"></i>
-        </button>
-        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition">
-            <i class="fas fa-chevron-right text-xl"></i>
-        </button>
-        
-        <!-- Indicadores (Bolinhas) -->
+        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition"><i class="fas fa-chevron-left text-xl"></i></button>
+        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition"><i class="fas fa-chevron-right text-xl"></i></button>
         <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3">
             <button onclick="setSlide(0)" class="w-3 h-3 rounded-full bg-white opacity-100 hover:opacity-100 transition shadow-sm"></button>
             <button onclick="setSlide(1)" class="w-3 h-3 rounded-full bg-white/50 hover:opacity-100 transition shadow-sm"></button>
         </div>
     </section>
 
-    <!-- Conteúdo Principal -->
+    <!-- Main Content -->
     <main class="container mx-auto px-4 py-16 flex-grow bg-white relative top-0 z-10 shadow-lg -mt-4 mb-8 max-w-6xl">
-        
         <div class="grid md:grid-cols-2 gap-16">
-            
-            <!-- Card 1 -->
             <article class="flex flex-col">
                 <h3 class="text-3xl font-bold text-gray-800 mb-6 font-oswald">Roteiro em destaque</h3>
                 <div class="h-64 overflow-hidden mb-6 border border-gray-200">
-                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
-                         alt="Paris" 
-                         class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Paris" class="w-full h-full object-cover transition duration-500 hover:scale-105">
                 </div>
                 <h4 class="text-xl font-bold text-black mb-3 uppercase font-oswald">10 dias em Paris</h4>
-                <p class="text-gray-600 text-base leading-relaxed mb-6 font-montserrat">
-                    Veja sugestões do que fazer em Paris, na França. Conheça mais sobre as principais atrações turísticas da cidade.
-                </p>
-                <div class="mt-auto">
-                    <a href="#" class="inline-block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-gray-800 transition">Leia mais</a>
-                </div>
+                <p class="text-gray-600 text-base leading-relaxed mb-6 font-montserrat">Veja sugestões do que fazer em Paris, na França.</p>
+                <div class="mt-auto"><a href="#" class="inline-block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-gray-800 transition">Leia mais</a></div>
             </article>
-
-            <!-- Card 2 -->
             <article class="flex flex-col">
                 <h3 class="text-3xl font-bold text-gray-800 mb-6 font-oswald">Dica sugerida</h3>
                 <div class="h-64 overflow-hidden mb-6 border border-gray-200">
-                    <img src="https://images.unsplash.com/photo-1483362140417-64095146c96b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
-                         alt="Inverno" 
-                         class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1483362140417-64095146c96b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Inverno" class="w-full h-full object-cover transition duration-500 hover:scale-105">
                 </div>
                 <h4 class="text-xl font-bold text-black mb-3 uppercase font-oswald">5 destinos para curtir o inverno no Brasil</h4>
-                <p class="text-gray-600 text-base leading-relaxed mb-6 font-montserrat">
-                    Aproveite as férias de julho e as baixas temperaturas do inverno para curtir algumas das cidades turísticas mais famosas.
-                </p>
-                <div class="mt-auto">
-                    <a href="#" class="inline-block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-gray-800 transition">Leia mais</a>
-                </div>
+                <p class="text-gray-600 text-base leading-relaxed mb-6 font-montserrat">Aproveite as férias de julho e as baixas temperaturas.</p>
+                <div class="mt-auto"><a href="#" class="inline-block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-gray-800 transition">Leia mais</a></div>
             </article>
-
         </div>
     </main>
 
-    <!-- Footer Escuro -->
+    <!-- Footer -->
     <footer class="bg-[#444444] text-white py-16 border-t-4 border-gray-600 mt-auto">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                <!-- Coluna Esquerda -->
                 <div class="text-left">
                     <h4 class="font-bold text-xl uppercase tracking-widest mb-6 font-oswald">Direitos Autorais</h4>
-                    <p class="text-sm leading-relaxed text-gray-300 font-montserrat">
-                        Conteúdo protegido por direitos autorais.<br>
-                        Proibida a reprodução total ou parcial sem autorização expressa dos autores.<br>
-                        Copyright © 2019 Giro no Mundo
-                    </p>
+                    <p class="text-sm leading-relaxed text-gray-300 font-montserrat">Conteúdo protegido por direitos autorais.<br>Copyright © 2019 Giro no Mundo</p>
                 </div>
-                
-                <!-- Coluna Direita -->
                 <div class="text-left md:text-right">
                     <h4 class="font-bold text-xl uppercase tracking-widest mb-6 font-oswald">Contato</h4>
                     <div class="text-sm text-gray-300 flex flex-col md:items-end gap-3 font-montserrat">
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-envelope"></i>
-                            <span>izabellapietro@hotmail.com</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Ribeirão Preto, São Paulo</span>
-                        </div>
+                        <div class="flex items-center gap-3"><i class="fas fa-envelope"></i><span>izabellapietro@hotmail.com</span></div>
+                        <div class="flex items-center gap-3"><i class="fas fa-map-marker-alt"></i><span>Ribeirão Preto, São Paulo</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Script Simples do Carrossel -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const indicators = document.querySelectorAll('.absolute.bottom-6 button');
-
         function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(ind => ind.classList.add('bg-white/50'));
-            indicators.forEach(ind => ind.classList.remove('opacity-100'));
-            
+            indicators.forEach(ind => {ind.classList.add('bg-white/50'); ind.classList.remove('opacity-100');});
             if (index >= slides.length) currentSlide = 0;
             if (index < 0) currentSlide = slides.length - 1;
-            
             slides[currentSlide].classList.add('active');
-            
-            // Atualiza indicadores
-            if(indicators[currentSlide]) {
-                indicators[currentSlide].classList.remove('bg-white/50');
-                indicators[currentSlide].classList.add('opacity-100');
-            }
+            if(indicators[currentSlide]) { indicators[currentSlide].classList.remove('bg-white/50'); indicators[currentSlide].classList.add('opacity-100'); }
         }
-
-        function changeSlide(n) {
-            currentSlide += n;
-            if (currentSlide >= slides.length) currentSlide = 0;
-            if (currentSlide < 0) currentSlide = slides.length - 1;
-            showSlide(currentSlide);
-        }
-
-        function setSlide(n) {
-            currentSlide = n;
-            showSlide(currentSlide);
-        }
-
-        // Auto-play a cada 5 segundos
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
+        function changeSlide(n) { currentSlide += n; if (currentSlide >= slides.length) currentSlide = 0; if (currentSlide < 0) currentSlide = slides.length - 1; showSlide(currentSlide); }
+        function setSlide(n) { currentSlide = n; showSlide(currentSlide); }
+        setInterval(() => { changeSlide(1); }, 5000);
     </script>
 </body>
 </html>
