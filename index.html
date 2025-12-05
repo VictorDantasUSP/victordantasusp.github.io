@@ -23,14 +23,14 @@
             font-family: 'Oswald', sans-serif;
         }
         
-        /* Padrão de Triângulos/Losangos Sutil */
+        /* Padrão de Losangos/Triângulos Ajustado */
         .header-pattern {
             background-color: #ffffff;
-            /* Cria o efeito de triângulos usando gradientes opostos */
+            /* Usando 45deg e -45deg (135deg) para criar losangos em vez de quadrados */
             background-image: 
                 linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4),
-                linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4);
-            background-position: 0 0, 10px 10px;
+                linear-gradient(135deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4);
+            background-position: 0 0, 10px 0;
             background-size: 20px 20px;
         }
 
@@ -74,38 +74,39 @@
 <body class="flex flex-col min-h-screen">
 
     <!-- Header com Padrão de Triângulos -->
-    <header class="header-pattern py-8 relative">
+    <!-- py-4 (16px topo + 16px base) + Logo (189px) = ~221px de altura total para esta seção -->
+    <header class="header-pattern py-4 relative flex items-center justify-center">
         <div class="container mx-auto px-4 relative flex flex-col items-center justify-center">
             
-            <!-- Ícones Sociais (Topo Direito Absoluto - Ajustado para alinhar melhor) -->
+            <!-- Ícones Sociais (Topo Direito Absoluto) -->
             <div class="absolute top-0 right-4 flex gap-3">
                 <a href="#" class="text-blue-800 text-2xl"><i class="fab fa-facebook-square"></i></a>
                 <a href="#" class="text-red-600 text-2xl"><i class="fab fa-youtube-square"></i></a>
                 <a href="#" class="text-pink-600 text-2xl"><i class="fab fa-instagram-square"></i></a>
             </div>
 
-            <!-- Logo Area (Aumentada) -->
-            <div class="mb-2 text-center w-full">
+            <!-- Logo Area -->
+            <div class="text-center w-full">
                 <a href="#" class="inline-block">
                     <!-- 
-                        Ajuste de tamanho: 
-                        No mobile (padrão): max-h-40 (160px)
-                        No desktop (md): max-h-60 (240px) 
-                        Isso deve aproximar do tamanho original do Wix
+                        Tamanho exato solicitado: 
+                        Altura desktop: 189px (h-[189px])
+                        Largura máxima desktop: 529px (max-w-[529px])
+                        Mantive responsivo para mobile (h-auto max-w-full)
                     -->
                     <img src="./images/Logo Completo.png" 
                          alt="Giro no Mundo" 
-                         class="h-auto max-h-40 md:max-h-60 mx-auto object-contain">
+                         class="h-auto md:h-[189px] w-auto max-w-full md:max-w-[529px] mx-auto object-contain">
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Barra de Menu Escura -->
-    <nav class="bg-[#333333] text-white py-4 shadow-md sticky top-0 z-50 border-t border-gray-600">
+    <!-- Altura fixada em 61px (h-[61px]) com flex para centralizar o conteúdo -->
+    <nav class="bg-[#333333] h-[61px] text-white shadow-md sticky top-0 z-50 border-t border-gray-600 flex items-center">
         <div class="container mx-auto px-4">
-            <!-- Fonte levemente maior (text-sm md:text-base) para combinar com o original -->
-            <ul class="flex flex-wrap justify-center items-center text-sm md:text-base font-bold tracking-wider uppercase font-oswald">
+            <ul class="flex flex-wrap justify-center items-center text-sm md:text-base font-bold tracking-wider uppercase font-oswald h-full">
                 <li class="menu-item flex items-center">
                     <a href="#" class="nav-link active">Página Inicial</a>
                     <span class="menu-separator"></span>
