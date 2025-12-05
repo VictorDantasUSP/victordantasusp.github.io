@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos | Giro no Mundo</title>
+    
+    <!-- Favicon e Ícones -->
+    <link rel="shortcut icon" href="./images/Perfil-Facebook.png" type="image/png">
+    <link rel="icon" href="./images/Perfil-Facebook.png" type="image/png">
+    <link rel="apple-touch-icon" href="./images/Perfil-Facebook.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #fcfcfc;
+        }
+
+        h1, h2, h3, .nav-item {
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        .header-pattern {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='32' viewBox='0 0 36 32'%3E%3Cpath fill='%23f4f4f4' d='M18 0 L9 16 L27 16 Z M9 16 L0 32 L18 32 Z M27 16 L18 32 L36 32 Z'/%3E%3C/svg%3E");
+            background-size: 18px 16px;
+            background-position: center top;
+        }
+
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #d4af37;
+        }
+        /* Classe active será aplicada via HTML na página correspondente */
+        .nav-link.active {
+            color: #d4af37;
+        }
+
+        .menu-separator {
+            border-right: 1px solid #777;
+            height: 14px;
+            margin: 0 15px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .menu-item:last-child .menu-separator {
+            display: none;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header (Idêntico ao Index) -->
+    <header class="header-pattern py-6 relative">
+        <div class="max-w-6xl mx-auto px-4 w-full relative flex flex-col md:block">
+            <div class="flex justify-center gap-4 mb-4 md:mb-0 md:absolute md:right-4 md:top-1/2 md:-translate-y-1/2 z-20">
+                <a href="https://www.facebook.com/gironomundo" target="_blank" class="text-blue-800 text-2xl hover:scale-110 transition"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.youtube.com/gironomundo" target="_blank" class="text-red-600 text-2xl hover:scale-110 transition"><i class="fab fa-youtube-square"></i></a>
+                <a href="https://www.instagram.com/gironomundo" target="_blank" class="text-pink-600 text-2xl hover:scale-110 transition"><i class="fab fa-instagram-square"></i></a>
+            </div>
+            <div class="text-center w-full">
+                <a href="index.html" class="inline-block">
+                    <img src="./images/Logo Completo.png" alt="Giro no Mundo" class="h-auto md:h-[189px] w-auto max-w-full md:max-w-[529px] mx-auto object-contain">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu -->
+    <nav class="bg-[#333333] min-h-[61px] h-auto text-white shadow-md sticky top-0 z-50 border-t border-gray-600 flex items-center py-2">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap justify-center items-center text-sm md:text-base font-bold tracking-wider uppercase font-oswald w-full gap-y-2">
+                <li class="menu-item flex items-center whitespace-nowrap">
+                    <!-- Link Home normal -->
+                    <a href="index.html" class="nav-link">Página Inicial</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center whitespace-nowrap">
+                    <!-- Link Destinos ATIVO (amarelo) -->
+                    <a href="destinos.html" class="nav-link active">Destinos</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center whitespace-nowrap">
+                    <a href="#" class="nav-link">Roteiros</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center whitespace-nowrap">
+                    <a href="#" class="nav-link">Morando Fora</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center whitespace-nowrap">
+                    <a href="#" class="nav-link">Dicas</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center whitespace-nowrap">
+                    <a href="#" class="nav-link">Sobre</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center whitespace-nowrap">
+                    <a href="#" class="nav-link">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Específico de Destinos -->
+    <!-- Sem Carrossel aqui -->
+    <main class="container mx-auto px-4 py-12 flex-grow bg-white max-w-6xl mt-8 mb-8 shadow-sm">
+        
+        <!-- Título Principal -->
+        <h2 class="text-4xl text-center uppercase font-oswald font-normal tracking-wide mb-12">Países</h2>
+
+        <!-- Seção: BRASIL -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-oswald uppercase mb-6 pl-2 border-l-4 border-black">Brasil</h3>
+            
+            <div class="relative w-full h-[300px] md:h-[400px] group overflow-hidden">
+                <!-- Imagem de Fundo (Bonito/Natureza) -->
+                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                     alt="Bonito Brasil" 
+                     class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                
+                <!-- Caixa de Texto Sobreposta (Estilo Wix) -->
+                <div class="absolute top-1/2 left-8 md:left-16 transform -translate-y-1/2 bg-white/90 p-6 md:p-8 max-w-xs shadow-lg">
+                    <h4 class="text-2xl font-oswald font-bold uppercase mb-2">Bonito</h4>
+                    <p class="font-montserrat text-sm text-gray-700 mb-4">Mergulhe nas águas cristalinas.</p>
+                    <a href="#" class="text-xs font-bold uppercase border-b border-black pb-1 hover:text-[#d4af37] hover:border-[#d4af37] transition">Ver Mais</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: COLÔMBIA -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-oswald uppercase mb-6 pl-2 border-l-4 border-black">Colômbia</h3>
+            
+            <div class="relative w-full h-[300px] md:h-[400px] group overflow-hidden">
+                <!-- Imagem de Fundo (Cartagena/Arquitetura) -->
+                <img src="https://images.unsplash.com/photo-1583531352515-8884af319dc1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                     alt="Cartagena Colômbia" 
+                     class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                
+                <!-- Caixa de Texto Sobreposta -->
+                <div class="absolute top-1/2 left-8 md:left-16 transform -translate-y-1/2 bg-white/90 p-6 md:p-8 max-w-xs shadow-lg">
+                    <h4 class="text-2xl font-oswald font-bold uppercase mb-2">Cartagena</h4>
+                    <p class="font-montserrat text-sm text-gray-700 mb-4">Cores e história no caribe.</p>
+                    <a href="#" class="text-xs font-bold uppercase border-b border-black pb-1 hover:text-[#d4af37] hover:border-[#d4af37] transition">Ver Mais</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Idêntico ao Index) -->
+    <footer class="bg-[#444444] text-white py-16 border-t-4 border-gray-600 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="text-left">
+                    <h4 class="font-bold text-xl uppercase tracking-widest mb-6 font-oswald">Direitos Autorais</h4>
+                    <p class="text-sm leading-relaxed text-gray-300 font-montserrat">Conteúdo protegido por direitos autorais.<br>Proibida a reprodução total ou parcial sem autorização expressa dos autores.<br>Copyright © 2019 Giro no Mundo</p>
+                </div>
+                <div class="text-left md:text-right">
+                    <h4 class="font-bold text-xl uppercase tracking-widest mb-6 font-oswald">Contato</h4>
+                    <div class="text-sm text-gray-300 flex flex-col md:items-end gap-3 font-montserrat">
+                        <div class="flex items-center gap-3"><i class="fas fa-envelope"></i><span>izabellapietro@hotmail.com</span></div>
+                        <div class="flex items-center gap-3"><i class="fas fa-map-marker-alt"></i><span>Ribeirão Preto, São Paulo</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
