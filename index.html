@@ -4,162 +4,301 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giro no Mundo | Tudo sobre viagens</title>
+    
+    <!-- Favicon adicionado -->
+    <link rel="icon" type="image/png" href="./images/Favicon-IOS.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Montserrat:wght@300;400;600&display=swap');
         
         body {
             font-family: 'Montserrat', sans-serif;
             color: #333;
+            background-color: #fcfcfc;
+        }
+
+        h1, h2, h3, .nav-item {
+            font-family: 'Oswald', sans-serif;
         }
         
-        .hero-section {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
+        /* Padrão pontilhado sutil no header similar ao da imagem */
+        .header-pattern {
+            background-color: #fdfdfd;
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 10px 10px;
         }
 
         .nav-link {
             transition: color 0.3s ease;
         }
         .nav-link:hover {
-            color: #d4af37; /* Tom dourado similar ao estilo de blogs de viagem */
+            color: #d4af37;
+        }
+        .nav-link.active {
+            color: #d4af37; /* Dourado do menu ativo */
+        }
+
+        /* Separador do menu */
+        .menu-separator {
+            border-right: 1px solid #777;
+            height: 14px;
+            margin: 0 15px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .menu-item:last-child .menu-separator {
+            display: none;
+        }
+
+        /* Estilo do Carrossel */
+        .carousel-slide {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        
+        .floating-card {
+            background-color: rgba(255, 255, 255, 0.85); /* Branco semi-transparente */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
-    <!-- Header / Menu -->
-    <header class="bg-white shadow-sm py-4 sticky top-0 z-50">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-            <!-- Logo Area -->
-            <div class="text-2xl font-bold tracking-widest uppercase mb-4 md:mb-0">
-                <a href="#" class="flex items-center gap-2">
-                    <i class="fas fa-globe-americas text-gray-800"></i>
-                    <span>Giro no Mundo</span>
-                </a>
-            </div>
-
-            <!-- Social Icons (Top Right usually) -->
-            <div class="absolute top-4 right-4 md:static md:hidden">
-                <div class="flex gap-3 text-gray-600">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <!-- Navigation -->
-            <nav>
-                <ul class="flex flex-wrap justify-center gap-6 text-sm font-semibold text-gray-600 tracking-wide">
-                    <li><a href="#" class="nav-link text-black">PÁGINA INICIAL</a></li>
-                    <li><a href="#" class="nav-link">DESTINOS</a></li>
-                    <li><a href="#" class="nav-link">ROTEIROS</a></li>
-                    <li><a href="#" class="nav-link">MORANDO FORA</a></li>
-                    <li><a href="#" class="nav-link">DICAS</a></li>
-                    <li><a href="#" class="nav-link">SOBRE</a></li>
-                    <li><a href="#" class="nav-link">CONTATO</a></li>
-                </ul>
-            </nav>
+    <!-- Header com Padrão de Fundo -->
+    <header class="header-pattern py-6 relative">
+        <div class="container mx-auto px-4 relative flex flex-col items-center justify-center">
             
-            <!-- Desktop Social Icons -->
-            <div class="hidden md:flex gap-4 text-gray-600 ml-4">
-                <a href="#" class="hover:text-blue-600"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="hover:text-pink-600"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+            <!-- Ícones Sociais (Topo Direito Absoluto) -->
+            <div class="absolute top-0 right-4 flex gap-2">
+                <a href="#" class="text-blue-800 text-xl"><i class="fab fa-facebook-square"></i></a>
+                <a href="#" class="text-red-600 text-xl"><i class="fab fa-youtube-square"></i></a>
+                <a href="#" class="text-pink-600 text-xl"><i class="fab fa-instagram-square"></i></a>
+            </div>
+
+            <!-- Logo Area (Centralizado) -->
+            <div class="mb-4 text-center">
+                <a href="#" class="inline-block">
+                    <!-- Imagem do Logo carregada da pasta images -->
+                    <img src="./images/Logo Completo.png" 
+                         alt="Giro no Mundo" 
+                         class="h-auto max-h-24 md:max-h-32 mx-auto">
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section: LONDRES -->
-    <section class="hero-section h-[500px] flex items-center justify-center text-white text-center relative">
-        <div class="bg-black/40 p-8 md:p-12 max-w-2xl mx-4">
-            <h2 class="text-4xl md:text-6xl font-bold mb-4 tracking-wider">LONDRES</h2>
-            <p class="text-lg md:text-xl font-light mb-6">Conheça mais sobre o turismo na capital inglesa</p>
-            <button class="border-2 border-white px-8 py-2 hover:bg-white hover:text-black transition duration-300 uppercase text-sm tracking-widest font-semibold">
-                Saiba Mais
-            </button>
+    <!-- Barra de Menu Escura -->
+    <nav class="bg-[#333333] text-white py-3 shadow-md sticky top-0 z-50 border-t border-gray-600">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap justify-center items-center text-xs md:text-sm font-bold tracking-wider uppercase">
+                <li class="menu-item flex items-center">
+                    <a href="#" class="nav-link active">Página Inicial</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center">
+                    <a href="#" class="nav-link">Destinos</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center">
+                    <a href="#" class="nav-link">Roteiros</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center">
+                    <a href="#" class="nav-link">Morando Fora</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center">
+                    <a href="#" class="nav-link">Dicas</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center">
+                    <a href="#" class="nav-link">Sobre</a>
+                    <span class="menu-separator"></span>
+                </li>
+                <li class="menu-item flex items-center">
+                    <a href="#" class="nav-link">Contato</a>
+                </li>
+            </ul>
         </div>
-        <div class="absolute bottom-4 right-4 text-xs opacity-70">
-            Crédito: Pixabay
+    </nav>
+
+    <!-- Hero Section / Carrossel -->
+    <section id="carousel" class="relative h-[400px] md:h-[550px] w-full overflow-hidden bg-gray-200">
+        
+        <!-- Slide 1: Londres -->
+        <div class="carousel-slide active h-full w-full relative">
+            <!-- 
+                 DICA PARA O GITHUB:
+                 Exemplo: src="./images/banner-londres.jpg"
+            -->
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                 alt="Londres" class="w-full h-full object-cover">
+            
+            <!-- Caixa Flutuante (Estilo da imagem) -->
+            <div class="absolute top-1/2 right-4 md:right-20 transform -translate-y-1/2 w-64 md:w-80 floating-card p-6 md:p-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 uppercase text-black">Londres</h2>
+                <div class="w-12 h-1 bg-black mx-auto mb-4"></div>
+                <p class="text-sm md:text-base font-semibold text-gray-800 leading-snug">
+                    Conheça mais sobre o turismo na capital inglesa
+                </p>
+                <p class="text-xs text-gray-500 mt-4">Crédito: Pixabay</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Paris (Exemplo de segundo slide) -->
+        <div class="carousel-slide h-full w-full relative">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                 alt="Paris" class="w-full h-full object-cover">
+            
+            <div class="absolute top-1/2 right-4 md:right-20 transform -translate-y-1/2 w-64 md:w-80 floating-card p-6 md:p-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 uppercase text-black">Paris</h2>
+                <div class="w-12 h-1 bg-black mx-auto mb-4"></div>
+                <p class="text-sm md:text-base font-semibold text-gray-800 leading-snug">
+                    Descubra o charme da Cidade Luz
+                </p>
+                <p class="text-xs text-gray-500 mt-4">Crédito: Unsplash</p>
+            </div>
+        </div>
+
+        <!-- Controles do Carrossel (Setas) -->
+        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- Indicadores (Bolinhas) -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+            <button onclick="setSlide(0)" class="w-3 h-3 rounded-full bg-white opacity-100 hover:opacity-100 transition shadow-sm"></button>
+            <button onclick="setSlide(1)" class="w-3 h-3 rounded-full bg-white/50 hover:opacity-100 transition shadow-sm"></button>
         </div>
     </section>
 
-    <!-- Main Content Area -->
-    <main class="container mx-auto px-4 py-16 flex-grow">
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4 py-12 flex-grow bg-white relative top-0 z-10 shadow-lg -mt-4 mb-8 max-w-5xl">
         
         <div class="grid md:grid-cols-2 gap-12">
             
-            <!-- Roteiro em Destaque -->
-            <article class="flex flex-col gap-4">
-                <div class="uppercase text-xs font-bold text-gray-400 tracking-widest mb-1">Roteiro em destaque</div>
-                <div class="h-64 overflow-hidden relative group">
-                    <!-- Imagem placeholder de Paris -->
+            <!-- Card 1 -->
+            <article class="flex flex-col">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Roteiro em destaque</h3>
+                <div class="h-56 overflow-hidden mb-4 border border-gray-200">
+                    <!-- 
+                        DICA GITHUB: src="./images/torre-eiffel.jpg"
+                    -->
                     <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
-                         alt="Torre Eiffel Paris" 
-                         class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                         alt="Paris" 
+                         class="w-full h-full object-cover transition duration-500 hover:scale-105">
                 </div>
-                <h3 class="text-2xl font-serif font-bold text-gray-800 mt-2">10 dias em Paris</h3>
-                <p class="text-gray-600 leading-relaxed text-sm">
-                    Veja sugestões do que fazer em Paris, na França. Conheça mais sobre as principais atrações turísticas da cidade e confira dicas para saber como aproveitar seu tempo lá.
+                <h4 class="text-lg font-bold text-black mb-2 uppercase">10 dias em Paris</h4>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Veja sugestões do que fazer em Paris, na França. Conheça mais sobre as principais atrações turísticas da cidade.
                 </p>
-                <a href="#" class="text-red-400 font-bold text-sm uppercase tracking-wide mt-2 hover:underline">Leia mais</a>
+                <div class="mt-auto">
+                    <a href="#" class="inline-block bg-black text-white px-6 py-2 text-xs font-bold uppercase tracking-wider hover:bg-gray-800 transition">Leia mais</a>
+                </div>
             </article>
 
-            <!-- Dica Sugerida -->
-            <article class="flex flex-col gap-4">
-                <div class="uppercase text-xs font-bold text-gray-400 tracking-widest mb-1">Dica sugerida</div>
-                <div class="h-64 overflow-hidden relative group">
-                    <!-- Imagem placeholder de Inverno/Campos do Jordão -->
+            <!-- Card 2 -->
+            <article class="flex flex-col">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Dica sugerida</h3>
+                <div class="h-56 overflow-hidden mb-4 border border-gray-200">
+                    <!-- 
+                        DICA GITHUB: src="./images/inverno-brasil.jpg"
+                    -->
                     <img src="https://images.unsplash.com/photo-1483362140417-64095146c96b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
                          alt="Inverno" 
-                         class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                         class="w-full h-full object-cover transition duration-500 hover:scale-105">
                 </div>
-                <h3 class="text-2xl font-serif font-bold text-gray-800 mt-2">5 destinos para curtir o inverno no Brasil</h3>
-                <p class="text-gray-600 leading-relaxed text-sm">
-                    Aproveite as férias de julho e as baixas temperaturas do inverno para curtir algumas das cidades turísticas mais famosas dessa estação.
+                <h4 class="text-lg font-bold text-black mb-2 uppercase">5 destinos para curtir o inverno no Brasil</h4>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Aproveite as férias de julho e as baixas temperaturas do inverno para curtir algumas das cidades turísticas mais famosas.
                 </p>
-                <a href="#" class="text-red-400 font-bold text-sm uppercase tracking-wide mt-2 hover:underline">Leia mais</a>
+                <div class="mt-auto">
+                    <a href="#" class="inline-block bg-black text-white px-6 py-2 text-xs font-bold uppercase tracking-wider hover:bg-gray-800 transition">Leia mais</a>
+                </div>
             </article>
 
         </div>
-
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-100 text-gray-600 py-12 border-t mt-auto">
-        <div class="container mx-auto px-4 text-center">
-            
-            <div class="grid md:grid-cols-3 gap-8 mb-8 text-sm">
-                <div>
-                    <h4 class="font-bold uppercase tracking-widest mb-4">Direitos Autorais</h4>
-                    <p class="text-xs leading-relaxed">
+    <!-- Footer Escuro -->
+    <footer class="bg-[#444444] text-white py-12 border-t-4 border-gray-600 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Coluna Esquerda -->
+                <div class="text-left">
+                    <h4 class="font-bold text-lg uppercase tracking-widest mb-4 font-oswald">Direitos Autorais</h4>
+                    <p class="text-xs leading-relaxed text-gray-300">
                         Conteúdo protegido por direitos autorais.<br>
-                        Proibida a reprodução total ou parcial sem autorização expressa dos autores.
+                        Proibida a reprodução total ou parcial sem autorização expressa dos autores.<br>
+                        Copyright © 2019 Giro no Mundo
                     </p>
                 </div>
-                <div>
-                    <h4 class="font-bold uppercase tracking-widest mb-4">Giro no Mundo</h4>
-                    <p class="text-xs">
-                        Copyright © 2019 - 2025 Giro no Mundo
-                    </p>
+                
+                <!-- Coluna Direita -->
+                <div class="text-left md:text-right">
+                    <h4 class="font-bold text-lg uppercase tracking-widest mb-4 font-oswald">Contato</h4>
+                    <div class="text-xs text-gray-300 flex flex-col md:items-end gap-2">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-envelope"></i>
+                            <span>izabellapietro@hotmail.com</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ribeirão Preto, São Paulo</span>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-bold uppercase tracking-widest mb-4">Contato</h4>
-                    <p class="text-xs">
-                        izabellapietro@hotmail.com<br>
-                        Ribeirão Preto, São Paulo
-                    </p>
-                </div>
-            </div>
-            
-            <div class="flex justify-center gap-6 text-xl mt-8">
-                <a href="#" class="text-gray-400 hover:text-gray-600"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-gray-400 hover:text-gray-600"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
 
+    <!-- Script Simples do Carrossel -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.absolute.bottom-4 button');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(ind => ind.classList.add('bg-white/50'));
+            indicators.forEach(ind => ind.classList.remove('opacity-100'));
+            
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+            
+            slides[currentSlide].classList.add('active');
+            
+            // Atualiza indicadores
+            if(indicators[currentSlide]) {
+                indicators[currentSlide].classList.remove('bg-white/50');
+                indicators[currentSlide].classList.add('opacity-100');
+            }
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            showSlide(currentSlide);
+        }
+
+        function setSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        // Auto-play a cada 5 segundos
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    </script>
 </body>
 </html>
