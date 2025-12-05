@@ -34,7 +34,7 @@ const menuContent = `
                 <span class="menu-separator"></span>
             </li>
             <li class="menu-item flex items-center whitespace-nowrap">
-                <a href="destinos.html" class="nav-link">Destinos</a>
+                <a href="/destinos/index.html" class="nav-link">Destinos</a>
                 <span class="menu-separator"></span>
             </li>
             <li class="menu-item flex items-center whitespace-nowrap">
