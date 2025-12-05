@@ -4,31 +4,15 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: #333;
-    background-color: #fcfcfc;
-    position: relative; /* Necessário para o posicionamento do fundo */
-}
-
-/* Camada de Fundo com Blur
-   Movemos o padrão para cá para poder usar o filter: blur()
-   sem afetar o texto do site.
-*/
-body::before {
-    content: "";
-    position: fixed; /* Fixa o fundo na tela (não rola com a página) */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Garante que fique atrás de tudo */
     
-    /* Configuração do Padrão */
+    /* Padrão de Triângulos (Aplicado agora em todo o site) 
+       - Cor de fundo ajustada para #ffffff para combinar com o padrão.
+       - A imagem e configurações foram movidas da classe .header-pattern para cá.
+    */
     background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='32' viewBox='0 0 36 32'%3E%3Cpath fill='%23f4f4f4' d='M18 0 L9 16 L27 16 Z M9 16 L0 32 L18 32 Z M27 16 L18 32 L36 32 Z M0 0 L9 16 L0 16 Z M36 0 L27 16 L36 16 Z'/%3E%3C/svg%3E");
     background-size: 18px 16px;
     background-position: center top;
-    
-    /* O BLUR: Aumente ou diminua o valor em px para ajustar a intensidade */
-    filter: blur(2px);
 }
 
 h1, h2, h3, .nav-item {
@@ -36,9 +20,12 @@ h1, h2, h3, .nav-item {
 }
 
 /* Header Pattern 
-   - Classe mantida vazia para compatibilidade, pois o fundo agora é gerenciado pelo body::before
+   - Removi as propriedades de background daqui, pois agora o body cuida disso.
+   - Mantive a classe vazia ou apenas para fins de layout se necessário no futuro,
+     mas visualmente ela agora é transparente e mostra o fundo do body.
 */
 .header-pattern {
+    /* Background removido para evitar sobreposição/desalinhamento com o body */
 }
 
 /* Links do Menu */
